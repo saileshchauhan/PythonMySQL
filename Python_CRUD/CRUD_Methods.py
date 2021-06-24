@@ -4,9 +4,12 @@
 @Last Modified time: 24-06-2021
 @Title : This Script provide method for CRUD operation in MySQL Database.
 '''
+import sys
 
-import logging,re
+sys.path.append(r"D:\PythonMySQL\Python_CRUD")
 import LogConfig
+import logging,re
+
 from decouple import config
 import mysql.connector
 
@@ -17,7 +20,8 @@ class CRUD_Methods:
         self._userName=config('user')
         self._passWord=config('passwd')
         self._databaseName=config('database')
-    
+        self._db=self.new_connection()
+        
     def new_connection(self):
         try:
             db=mysql.connector.connect(
@@ -28,7 +32,7 @@ class CRUD_Methods:
                 )
             if(db.is_connected):
                 logging.info("Connection Succesful")
-            self._db=db
+            return db
         except Exception as ex:
             logging.critical(ex)
     
@@ -66,7 +70,7 @@ class CRUD_Methods:
     def read_table(self):
         try:
             mycursor=self._db.cursor()
-            mycursor.execute('SELECT * FROM STUDENT')
+            mycursor.execute("SELECT * FROM STUDENT")
             rows=mycursor.fetchall()
             for row in rows:
                 print(row)
