@@ -21,7 +21,7 @@ class CRUD_Methods:
         self._passWord=config('passwd')
         self._databaseName=config('database')
         self._db=self.new_connection()
-        
+
     def new_connection(self):
         try:
             db=mysql.connector.connect(
@@ -77,4 +77,14 @@ class CRUD_Methods:
         except Exception as ex:
             logging.critical(ex)
 
+    def delete_entry(self):
+        try:
+            mycursor=self._db.cursor()
+            self.read_table()
+            id=int(input("Enter Id entry to be delete\n"))
+            query="DELETE FROM STUDENT WHERE ID={}".format(id)
+            mycursor.execute(query)
+            self._db.commit()
+        except Exception as ex:
+            logging.critical(ex)
 
