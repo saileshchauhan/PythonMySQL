@@ -8,7 +8,7 @@
 from CRUD_Methods import CRUD_Methods
 
 
-class main:
+class Main:
 
     operation=CRUD_Methods()
 
