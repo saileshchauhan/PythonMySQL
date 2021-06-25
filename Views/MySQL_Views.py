@@ -23,3 +23,17 @@ class ViewFunction:
         self.passWord=config('passwd')
         self.databaseName=config('database')
         self.db=self.new_connection()
+
+    def new_connection(self):
+        try:
+            db=mysql.connector.connect(
+                host=self.host,
+                user=self.userName,
+                passwd=self.passWord,
+                database=self.databaseName
+                )
+            if(db.is_connected):
+                logging.info("Connection Succesful")
+            return db
+        except Exception as ex:
+            logging.critical(ex)

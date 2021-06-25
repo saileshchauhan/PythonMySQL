@@ -9,7 +9,7 @@ from MySQL_Views import ViewFunction
 
 
 class Main:
-    
+
     func=ViewFunction()
 
     switcher={
@@ -25,7 +25,6 @@ class Main:
             return function()
         return "Invalid Input"
 
-    
     choice=''
     while(choice.lower()!='q'):
         print("==================FUNCTIONS In MySQL====================")
