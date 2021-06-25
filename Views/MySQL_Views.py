@@ -93,3 +93,19 @@ class ViewFunction:
             logging.info(coursor.execute(createQuery))
         except Exception as ex:
             logging.critical(ex)
+    
+    
+    def drop_views(myobj):
+        '''
+        Description:
+            Drop view which are existing in the database.    
+        '''
+        try:
+            myobj.show_tables()
+            coursor=myobj.db.cursor()
+            viewDelete=input("Enter name of view to be dropped")
+            query="DROP VIEW {}".format(viewDelete)
+            coursor.execute(query)
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
