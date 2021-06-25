@@ -95,3 +95,19 @@ class IndexFunction:
             logging.info(coursor.execute(createQuery))
         except Exception as ex:
             logging.critical(ex)
+
+    def drop_indexes(myobj):
+        '''
+        Description:
+            Drop indexes which are existing in the database.    
+        '''
+        try:
+            myobj.read_index()
+            coursor=myobj.db.cursor()
+            tableName=input("Enter name of table")
+            indexDelete=input("Enter name of index to be dropped")
+            query="ALTER TABLE {} DROP INDEX {}".format(tableName,indexDelete)
+            coursor.execute(query)
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
