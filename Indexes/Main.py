@@ -8,7 +8,7 @@
 from MySQL_Indexes import IndexFunction
 
 class Main:
-    
+
     func=IndexFunction()
 
     switcher={
@@ -23,3 +23,18 @@ class Main:
             function=switcher.get(choice)
             return function()
         return "Invalid Input"
+
+    
+    choice=''
+    while(choice.lower()!='q'):
+        print("==================FUNCTIONS In MySQL====================")
+        print('1.Read Indexes\n2.Show Table Schema\n3.Create Indexes.')
+        print('4.Drop Indexes')
+        choice=input('Make your choice\n')
+        
+        print(switcher_to_call_Methods(choice,switcher))
+        print("Enter Any key to continue\nENTER Q TO STOP PROGRAM")
+        choice=input('Enter your choice\n')
+
+        if(choice.lower()=='q'):
+            print("Selected to exit Program")
