@@ -74,7 +74,6 @@ class Functions:
         except Exception as ex:
             logging.critical(ex)
 
-
 ############ NUMERIC FUNCTIONS ###########################
 
     def count(myobj):
