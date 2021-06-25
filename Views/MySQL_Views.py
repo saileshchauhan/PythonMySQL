@@ -57,3 +57,18 @@ class ViewFunction:
                 print(row)
         except Exception as ex:
             logging.critical(ex)
+
+    def show_tables(myobj):
+        '''
+        Description:
+            Method reads tables in database.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SHOW TABLES"
+            coursor.execute(query)
+            for table in coursor:
+                print(table)
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
