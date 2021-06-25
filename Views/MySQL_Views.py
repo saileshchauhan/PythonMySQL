@@ -25,6 +25,10 @@ class ViewFunction:
         self.db=self.new_connection()
 
     def new_connection(self):
+        '''
+        Description:
+            Method connects python with MySql databases.
+        '''
         try:
             db=mysql.connector.connect(
                 host=self.host,
@@ -35,5 +39,21 @@ class ViewFunction:
             if(db.is_connected):
                 logging.info("Connection Succesful")
             return db
+        except Exception as ex:
+            logging.critical(ex)
+
+    def read_view(self):
+        '''
+        Description:
+            Method reads all row of table.
+        '''
+        try:
+            self.show_tables()
+            mycursor=self.db.cursor()
+            viewName=input("Enter Table name or view name\n")
+            mycursor.execute("SELECT * FROM {}".format(viewName))
+            rows=mycursor.fetchall()
+            for row in rows:
+                print(row)
         except Exception as ex:
             logging.critical(ex)
