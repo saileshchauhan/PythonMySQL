@@ -72,3 +72,24 @@ class ViewFunction:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex)
+    
+        def create_views(myobj):
+            '''
+            Description:
+                Methods create views from existing tables.
+            '''
+            try:
+                myobj.show_tables()
+                coursor=myobj.db.cursor()
+                tablename=input("Enter table name\n")
+                query="DESCRIBE practisedb.{}".format(tablename)
+                coursor.execute(query)
+                print("SCHEMA OF TABLE {}".format(tablename))
+                for row in coursor:
+                    print(row)
+                viewName=input("Enter name of view\n")
+                condition=input("Enter condition it will go after WHERE\n")
+                createQuery="CREATE VIEW {} AS SELECT * FROM {} WHERE {}".format(viewName,tablename,condition)
+                logging.info(coursor.execute(createQuery))
+            except Exception as ex:
+                logging.critical(ex)
