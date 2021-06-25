@@ -15,7 +15,7 @@ import logging,re
 from decouple import config
 import mysql.connector
 
-class Functions:
+class ViewFunction:
 
     def __init__(self):
         self.host=config('host')

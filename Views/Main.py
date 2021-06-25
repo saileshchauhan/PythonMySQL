@@ -5,12 +5,12 @@
 @Title : To Perform CRUD operation in MySQL database using Python.
 '''
 
-from MySQL_Functions import Functions
+from MySQL_Views import ViewFunction
 
 
 class Main:
     
-    func=Functions()
+    func=ViewFunction()
 
     switcher={
     '1':func.read_view,
