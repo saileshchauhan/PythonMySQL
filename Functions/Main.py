@@ -9,7 +9,7 @@ from MySQL_Functions import Functions
 
 
 class Main:
-    
+
     func=Functions()
 
     switcher={
@@ -24,3 +24,17 @@ class Main:
             function=switcher.get(choice)
             return function()
         return "Invalid Input"
+
+    choice=''
+    while(choice.lower()!='q'):
+        print("==================FUNCTIONS In MySQL====================")
+        print('1.Read Tables\n2.Show Tables')
+        print('3.Order Table by Math Marks\4. Count name of student')
+        choice=input('Make your choice\n')
+        
+        print(switcher_to_call_Methods(choice,switcher))
+        print("Enter Any key to continue\nENTER Q TO STOP PROGRAM")
+        choice=input('Enter your choice\n')
+
+        if(choice.lower()=='q'):
+            print("Selected to exit Program")
