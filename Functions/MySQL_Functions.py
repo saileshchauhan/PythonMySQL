@@ -25,6 +25,8 @@ class Functions:
         self.db=self.new_connection()
 
     def new_connection(self):
+        '''
+        '''
         try:
             db=mysql.connector.connect(
                 host=self.host,
@@ -39,6 +41,8 @@ class Functions:
             logging.critical(ex)
 
     def read_table(self):
+        '''
+        '''
         try:
             mycursor=self.db.cursor()
             mycursor.execute("SELECT * FROM STUDENT")
@@ -85,6 +89,19 @@ class Functions:
             coursor.execute(query)
             for row in coursor:
                 print("Total number of students ",row)
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+    
+    def max_functin(myobj):
+        '''
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT MAX(MATH_MARKS) FROM STUDENT"
+            coursor.execute(query)
+            for row in coursor:
+                print("Maximum marks obtained by Students in Math ",row)
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex)

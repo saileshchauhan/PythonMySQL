@@ -16,11 +16,12 @@ class Main:
     '1':func.read_table,
     '2':func.show_tables,
     '3':func.order_by_marks,
-    '4':func.count
+    '4':func.count,
+    '5':func.max_functin
     }
 
     def switcher_to_call_Methods(choice,switcher):
-        if(choice in ['1','2','3','4']):
+        if(choice in ['1','2','3','4','5']):
             function=switcher.get(choice)
             return function()
         return "Invalid Input"
@@ -29,7 +30,7 @@ class Main:
     while(choice.lower()!='q'):
         print("==================FUNCTIONS In MySQL====================")
         print('1.Read Tables\n2.Show Tables')
-        print('3.Order Table by Math Marks\4. Count name of student')
+        print('3.Order Table by Math Marks\n4. Count name of student\n5. Max marks in Maths')
         choice=input('Make your choice\n')
         
         print(switcher_to_call_Methods(choice,switcher))
