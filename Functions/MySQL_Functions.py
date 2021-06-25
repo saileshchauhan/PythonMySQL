@@ -62,4 +62,14 @@ class Functions:
         except Exception as ex:
             logging.critical(ex)
 
-    
+    def order_by_marks(myobj):
+        '''
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT * FROM STUDENT ORDER BY MATH_MARKS"
+            coursor.execute(query)
+            for row in coursor:
+                print(row)
+        except Exception as ex:
+            logging.critical(ex)
