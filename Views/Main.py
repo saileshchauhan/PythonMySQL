@@ -18,3 +18,9 @@ class Main:
     '3':func.create_views,
     '4':func.drop_views
     }
+
+    def switcher_to_call_Methods(choice,switcher):
+        if(choice in ['1','2','3','4']):
+            function=switcher.get(choice)
+            return function()
+        return "Invalid Input"
