@@ -41,3 +41,22 @@ class IndexFunction:
             return db
         except Exception as ex:
             logging.critical(ex)
+    
+    
+    def read_index(self):
+        '''
+        Description:
+            Method Finds index.
+        '''
+        try:
+            self.show_tables()
+            mycursor=self.db.cursor()
+            tableName=input("Enter Table name to find indexes\n")
+            mycursor.execute("SHOW INDEX FROM practisedb.{}".format(tableName))
+            rows=mycursor.fetchall()
+            for row in rows:
+                print(row)
+        except Exception as ex:
+            logging.critical(ex)
+    
+    
