@@ -26,6 +26,7 @@ class Functions:
 
     def new_connection(self):
         '''
+        Description:
         '''
         try:
             db=mysql.connector.connect(
@@ -42,6 +43,8 @@ class Functions:
 
     def read_table(self):
         '''
+        Description:
+            Method reads all row of table.
         '''
         try:
             mycursor=self.db.cursor()
@@ -55,6 +58,8 @@ class Functions:
     
     def show_tables(myobj):
         '''
+        Description:
+            Method implement query to get all tables in Database.
         '''
         try:
             coursor=myobj.db.cursor()
@@ -68,6 +73,8 @@ class Functions:
 
     def order_by_marks(myobj):
         '''
+        Description:
+            Method performs function to order students by maths marks.
         '''
         try:
             coursor=myobj.db.cursor()
@@ -78,10 +85,12 @@ class Functions:
         except Exception as ex:
             logging.critical(ex)
 
-############ NUMERIC FUNCTIONS ###########################
+###################### NUMERIC FUNCTIONS ###################################
 
     def count(myobj):
         '''
+        Description:
+            Method performs function to get count marks in maths column.
         '''
         try:
             coursor=myobj.db.cursor()
@@ -95,6 +104,8 @@ class Functions:
     
     def max_functin(myobj):
         '''
+        Description:
+            Method performs function to get maximum marks in maths column.
         '''
         try:
             coursor=myobj.db.cursor()
@@ -105,3 +116,18 @@ class Functions:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex)
+
+    def min_marks(myobj):
+        '''
+        Description:
+            Method performs function to get minimum marks in maths column.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT MIN(MATH_MARKS) FROM STUDENT"
+            coursor.execute(query)
+            for row in coursor:
+                print("Minimum marks obtained by Students in Math ",row)
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex) 
