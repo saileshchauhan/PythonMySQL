@@ -73,3 +73,19 @@ class Functions:
                 print(row)
         except Exception as ex:
             logging.critical(ex)
+
+
+############ NUMERIC FUNCTIONS ###########################
+
+    def count(myobj):
+        '''
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT COUNT(NAME) FROM STUDENT"
+            coursor.execute(query)
+            for row in coursor:
+                print("Total number of students ",row)
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
