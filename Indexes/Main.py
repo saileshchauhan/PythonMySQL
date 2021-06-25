@@ -27,7 +27,7 @@ class Main:
     
     choice=''
     while(choice.lower()!='q'):
-        print("==================FUNCTIONS In MySQL====================")
+        print("==================INDEXES In MySQL====================")
         print('1.Read Indexes\n2.Show Table Schema\n3.Create Indexes.')
         print('4.Drop Indexes')
         choice=input('Make your choice\n')

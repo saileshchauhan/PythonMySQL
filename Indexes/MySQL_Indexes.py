@@ -2,7 +2,8 @@
 @Author: Sailesh Chauhan
 @Date: 25-06-2021
 @Last Modified time: 25-06-2021
-@Title : This Script provide method for CRUD operation in MySQL Database.
+@Title : In this program I have added methods to perform create,read,show
+         drop indexes in MySQL with Python.
 '''
 import sys
 

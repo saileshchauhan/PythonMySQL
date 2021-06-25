@@ -2,7 +2,7 @@
 @Author: Sailesh Chauhan
 @Date: 25-06-2021
 @Last Modified time: 25-06-2021
-@Title : To Perform CRUD operation in MySQL database using Python.
+@Title : To Perform create,read show and drop views in MySQL using python code.
 '''
 
 from MySQL_Views import ViewFunction
@@ -27,7 +27,7 @@ class Main:
 
     choice=''
     while(choice.lower()!='q'):
-        print("==================FUNCTIONS In MySQL====================")
+        print("==================VIEWS In MySQL====================")
         print('1.Read Views\n2.Show Table Schema\n3.Create Views.')
         print('4.Drop views')
         choice=input('Make your choice\n')

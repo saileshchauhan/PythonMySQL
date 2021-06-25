@@ -2,7 +2,8 @@
 @Author: Sailesh Chauhan
 @Date: 25-06-2021
 @Last Modified time: 25-06-2021
-@Title : This Script provide method for CRUD operation in MySQL Database.
+@Title : This script provides function for performing create,show,drop
+         and establish connection with MySQL.
 '''
 import sys
 
