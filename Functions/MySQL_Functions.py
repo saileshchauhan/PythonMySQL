@@ -37,3 +37,13 @@ class Functions:
             return db
         except Exception as ex:
             logging.critical(ex)
+
+    def read_table(self):
+        try:
+            mycursor=self.db.cursor()
+            mycursor.execute("SELECT * FROM STUDENT")
+            rows=mycursor.fetchall()
+            for row in rows:
+                print(row)
+        except Exception as ex:
+            logging.critical(ex)        
