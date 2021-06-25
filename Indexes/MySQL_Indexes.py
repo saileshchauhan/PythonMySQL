@@ -79,3 +79,19 @@ class IndexFunction:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex)
+
+    def create_indexes(myobj):
+        '''
+        Description:
+            Methods create index for user selected table.
+        '''
+        try:
+            myobj.show_tables()
+            coursor=myobj.db.cursor()
+            tableName=input("Enter table name\n")
+            viewName=input("Enter name of index\n")
+            column=input("Enter Column name\n")
+            createQuery="CREATE INDEX {} ON {} ({})".format(viewName,tableName,column)
+            logging.info(coursor.execute(createQuery))
+        except Exception as ex:
+            logging.critical(ex)
