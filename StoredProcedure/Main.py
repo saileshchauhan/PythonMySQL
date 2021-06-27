@@ -46,3 +46,4 @@ class Main:
                 choice=input('Enter your choice\n')
         except Exception as ex:
             logging.critical(ex)
+    main()
