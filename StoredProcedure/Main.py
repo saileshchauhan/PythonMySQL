@@ -22,4 +22,23 @@ class Main:
                 print('1.New Entry to STUDENT table\n2.Read entry from STUDENT table')
                 print('3.Delete entry from STUDENT table\n4.Update entry of STUDENT')
                 choice=input('Make your Selection\n')
-                pass
+                if choice=='1':
+                    name=input("Enter First Name of Student\n")
+                    marks=input("Enter Marks of {} \n".format(name))
+                    address=input("Enter address of {} \n".format(name))
+                    gender=input("Enter gender of {} \n".format(name))
+                    operation.new_entry(name,marks,address,gender)
+                elif choice=='2':
+                    operation.read_table()
+                elif choice=='3':
+                    operation.read_table()
+                    id=input("Enter ID of the student to be deleted\n")
+                    operation.delete_entry(id)
+                elif choice=='4':
+                    operation.read_table()
+                    id=input("Enter ID of the student to be updated\n")
+                    operation.update_entry(id)
+                elif choice.lower()=='q':
+                    print("Selected to exit Program")
+                else:
+                    print("Invalid input {} ".format(choice))
