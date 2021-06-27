@@ -42,3 +42,7 @@ class Main:
                     print("Selected to exit Program")
                 else:
                     print("Invalid input {} ".format(choice))
+                print("Enter Any key to continue\nENTER Q TO STOP PROGRAM")
+                choice=input('Enter your choice\n')
+        except Exception as ex:
+            logging.critical(ex)
