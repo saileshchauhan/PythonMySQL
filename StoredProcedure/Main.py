@@ -13,5 +13,13 @@ from CRUD_Methods import CRUD_Methods
 
 class Main:
 
-    
-    pass
+    def main():
+        try:
+            operation=CRUD_Methods()
+            choice=''
+            while(choice.lower()!='q'):
+                print("==================CRUD Operation In MySQL====================")
+                print('1.New Entry to STUDENT table\n2.Read entry from STUDENT table')
+                print('3.Delete entry from STUDENT table\n4.Update entry of STUDENT')
+                choice=input('Make your Selection\n')
+                pass
