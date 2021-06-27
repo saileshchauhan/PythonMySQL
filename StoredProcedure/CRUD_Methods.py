@@ -17,4 +17,11 @@ from decouple import config
 import mysql.connector
 
 class CRUD_Methods:
-    pass
+    
+    def __init__(self):
+        self.db=mysql.connector.connect(
+                host=config('host'),
+                user=config('user'),
+                passwd=config('passwd'),
+                database=config('database')
+                )
