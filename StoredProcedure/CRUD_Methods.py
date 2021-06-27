@@ -25,7 +25,7 @@ class CRUD_Methods:
                 passwd=config('passwd'),
                 database=config('database')
                 )
-                
+
     def new_entry(self,name,marks,address,gender):
         '''
         Description:
@@ -45,3 +45,22 @@ class CRUD_Methods:
             logging.critical(ex)
         finally:
             mycursor.close()
+
+    def read_table(self):
+        '''
+        Description:
+            Method reads student table using stored procedure.
+        Parameters:
+            Takes self for connection.
+        Return:
+            None.
+        '''
+        try:
+            mycursor=self.db.cursor()
+            mycursor.callproc('sp_getall')
+            rows=mycursor.stored_results()
+            for result in rows:
+                for row in result.fetchall():
+                    print(row)             
+        except Exception as ex:
+            logging.critical(ex)
