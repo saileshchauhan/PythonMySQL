@@ -64,3 +64,24 @@ class CRUD_Methods:
                     print(row)             
         except Exception as ex:
             logging.critical(ex)
+
+    def update_entry(self,id):
+        '''
+        Description:
+            Method updates entry of particular student in student table
+            using stored procedure.
+        Parameters:
+            Takes self and id as parameters.
+        Return:
+            None.
+        '''
+        try:
+            name=input("Enter First Name of Student")
+            marks=input("Enter Marks of {} ".format(name))
+            address=input("Enter address of {} ".format(name))
+            gender=input("Enter gender of {} ".format(name))
+            mycursor=self.db.cursor()
+            mycursor.callproc('sp_update',[name,marks,address,gender,id])
+            self.db.commit()
+        except Exception as ex:
+            logging.critical(ex)
