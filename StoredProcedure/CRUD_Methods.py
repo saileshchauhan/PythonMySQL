@@ -85,3 +85,20 @@ class CRUD_Methods:
             self.db.commit()
         except Exception as ex:
             logging.critical(ex)
+
+    def delete_entry(self,id):
+        '''
+        Description:
+            Method uses stored procedure for deleting a particular
+            entry from Student table.
+        Parameters:
+            Takes self and student Id as parameter.
+        Return:
+            None.
+        '''
+        try:
+            mycursor=self.db.cursor()
+            mycursor.callproc('sp_delete',[id])
+            self.db.commit()
+        except Exception as ex:
+            logging.critical(ex)
