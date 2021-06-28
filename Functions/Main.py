@@ -18,7 +18,16 @@ class Main:
     '3':func.order_by_marks,
     '4':func.count,
     '5':func.max_functin,
-    '6':func.min_marks
+    '6':func.min_marks,
+    '7':func.avg_marks,
+    '8':func.sum_marks,
+    '9':func.current_date,
+    '10':func.current_time,
+    '11':func.current_timestamp,
+    '12':func.date_diff,
+    '13':func.upper_name,
+    '14':func.reverse_name,
+    '15':func.length_name
     }
 
     def switcher_to_call_Methods(choice,switcher):
