@@ -180,3 +180,18 @@ class Functions:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex)
+
+    def current_time(myobj):
+        '''
+        Description:
+            Method use CURRENT_TIME() function to get current time.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT CURRENT_TIME()"
+            coursor.execute(query)
+            for row in coursor:
+                print("Current Time {} ".format(row[0]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
