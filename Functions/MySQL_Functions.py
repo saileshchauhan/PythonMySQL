@@ -147,4 +147,20 @@ class Functions:
                 print("Gender {}  Average of maths marks {} ".format(row[0],row[1]))
             logging.info(coursor.close())
         except Exception as ex:
-            logging.critical(ex)  
+            logging.critical(ex)
+
+    def sum_marks(myobj):
+        '''
+        Description:
+            Method use sum function SUM() to get sum of marks in maths
+            group by gender.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT GENDER,SUM(MATH_MARKS) FROM STUDENT GROUP BY GENDER"
+            coursor.execute(query)
+            for row in coursor:
+                print("Gender {}  Sum of Maths marks {} ".format(row[0],row[1]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex) 
