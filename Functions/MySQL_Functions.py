@@ -210,3 +210,19 @@ class Functions:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex)
+    
+      
+    def date_diff(myobj):
+        '''
+        Description:
+            Method use DATEDIFF() function to get difference between two date columns.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT `name`,datediff(`DateOfTransfer`,`DateOfAddmission`) from student"
+            coursor.execute(query)
+            for row in coursor:
+                print("Student {} Stayed for {} days in School".format(row[0],row[1]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
