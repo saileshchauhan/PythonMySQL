@@ -195,3 +195,18 @@ class Functions:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex)
+    
+    def current_timestamp(myobj):
+        '''
+        Description:
+            Method use CURRENT_TIMESTAMP() function to get current time stamp.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT CURRENT_TIMESTAMP()"
+            coursor.execute(query)
+            for row in coursor:
+                print("Current Time Stamp {} ".format(row[0]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
