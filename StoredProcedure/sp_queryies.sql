@@ -18,7 +18,6 @@ begin
 end //
 delimiter ;
 
-drop procedure sp_update;
 
 delimiter //
 create procedure sp_update(IN s_name varchar(50),In s_marks int, In s_address varchar(30),In s_gender varchar(6),IN uniqueId int)
