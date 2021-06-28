@@ -243,4 +243,20 @@ class Functions:
                 print(" {} ".format(row[0]))
             logging.info(coursor.close())
         except Exception as ex:
+            logging.critical(ex)
+
+    def reverse_name(myobj):
+        '''
+        Description:
+            Method use REVERSE() to reverse name of student.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT reverse(name),reverse(Address) from student"
+            coursor.execute(query)
+            print("Student name and address in reverse order")
+            for row in coursor:
+                print(" {}  {} ".format(row[0],row[1]))
+            logging.info(coursor.close())
+        except Exception as ex:
             logging.critical(ex)   
