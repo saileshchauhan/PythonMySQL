@@ -226,3 +226,21 @@ class Functions:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex)
+
+#-----------------------------String_Function----------------------------------------------#
+
+    def upper_name(myobj):
+        '''
+        Description:
+            Method use UPPER() function to get Name of students in upper Case.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT upper(name) from student"
+            coursor.execute(query)
+            print("Student Name in Upper Case")
+            for row in coursor:
+                print(" {} ".format(row[0]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)   
