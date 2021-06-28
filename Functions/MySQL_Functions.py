@@ -1,7 +1,7 @@
 '''
 @Author: Sailesh Chauhan
 @Date: 24-06-2021
-@Last Modified time: 24-06-2021
+@Last Modified time: 28-06-2021
 @Title : This Script provide method for CRUD operation in MySQL Database.
 '''
 import sys
@@ -27,6 +27,7 @@ class Functions:
     def new_connection(self):
         '''
         Description:
+            Method for establishing connection with MySQL database.
         '''
         try:
             db=mysql.connector.connect(
