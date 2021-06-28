@@ -131,3 +131,20 @@ class Functions:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex) 
+
+    
+    def avg_marks(myobj):
+        '''
+        Description:
+            Method use average function AVG() to get average marks in maths
+            group by gender.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT GENDER,AVG(MATH_MARKS) FROM STUDENT GROUP BY GENDER"
+            coursor.execute(query)
+            for row in coursor:
+                print("Gender {}  Average of maths marks {} ".format(row[0],row[1]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)  
