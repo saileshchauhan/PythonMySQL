@@ -85,7 +85,7 @@ class Functions:
         except Exception as ex:
             logging.critical(ex)
 
-###################### NUMERIC FUNCTIONS ###################################
+#-----------------------------NUMERIC FUNCTIONS -------------------------#
 
     def count(myobj):
         '''
@@ -163,4 +163,20 @@ class Functions:
                 print("Gender {}  Sum of Maths marks {} ".format(row[0],row[1]))
             logging.info(coursor.close())
         except Exception as ex:
-            logging.critical(ex) 
+            logging.critical(ex)
+
+#------------------------------Date_Time_Function-----------------------------------#
+    def current_date(myobj):
+        '''
+        Description:
+            Method use CURRENT_DATE() function to get current date.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT CURRENT_DATE()"
+            coursor.execute(query)
+            for row in coursor:
+                print("Current Date in YYYY-MM-DD {} ".format(row[0]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
