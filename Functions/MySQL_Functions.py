@@ -259,4 +259,20 @@ class Functions:
                 print(" {}  {} ".format(row[0],row[1]))
             logging.info(coursor.close())
         except Exception as ex:
+            logging.critical(ex)
+
+    def length_name(myobj):
+        '''
+        Description:
+            Method use LENGTH() to get name length of student.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT name,address,length(name),length(address) from student"
+            coursor.execute(query)
+            print("Length of student name and Address")
+            for row in coursor:
+                print("Name of student {} length {} Address {} length {} ".format(row[0],row[2],row[1],row[3]))
+            logging.info(coursor.close())
+        except Exception as ex:
             logging.critical(ex)   
