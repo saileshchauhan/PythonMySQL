@@ -2,14 +2,15 @@
 @Author: Sailesh Chauhan
 @Date: 24-06-2021
 @Last Modified time: 24-06-2021
-@Title : This Script provides methods for implementing various functions
-         of MySQL database such as max,min,avg,count,current user.
+@Title : This Script provide method for CRUD operation in MySQL Database.
 '''
-
 import sys
+
+from mysql.connector import cursor
+
 sys.path.append(r"D:\PythonMySQL\Functions")
 import LogConfig
-import logging
+import logging,re
 
 from decouple import config
 import mysql.connector
