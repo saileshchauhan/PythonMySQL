@@ -31,7 +31,7 @@ class Main:
     }
 
     def switcher_to_call_Methods(choice,switcher):
-        if(choice in ['1','2','3','4','5','6']):
+        if(choice in ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']):
             function=switcher.get(choice)
             return function()
         return "Invalid Input"
@@ -41,6 +41,8 @@ class Main:
         print("==================FUNCTIONS In MySQL====================")
         print('1.Read Tables\n2.Show Tables\n3.Order Table by Math Marks')
         print('4.Count name of student\n5.Max marks in Maths\n6.Min marks in Maths')
+        print('7.Average Marks\n8.Sum of marks\n9.Current Date\n10.Current time\n11.current time stamp')
+        print('12.Date Difference\n13.Convert Name to upper case\n14. Reverse of Name\n15.Lenght of Name')
         choice=input('Make your choice\n')
         
         print(switcher_to_call_Methods(choice,switcher))
