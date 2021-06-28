@@ -2,14 +2,15 @@
 @Author: Sailesh Chauhan
 @Date: 24-06-2021
 @Last Modified time: 24-06-2021
-@Title : This Script provides methods for implementing various functions
-         of MySQL database such as max,min,avg,count,current user.
+@Title : This Script provide method for CRUD operation in MySQL Database.
 '''
-
 import sys
+
+from mysql.connector import cursor
+
 sys.path.append(r"D:\PythonMySQL\Functions")
 import LogConfig
-import logging
+import logging,re
 
 from decouple import config
 import mysql.connector
@@ -84,7 +85,7 @@ class Functions:
         except Exception as ex:
             logging.critical(ex)
 
-###################### NUMERIC FUNCTIONS ###################################
+#-----------------------------NUMERIC FUNCTIONS -------------------------#
 
     def count(myobj):
         '''
@@ -130,3 +131,148 @@ class Functions:
             logging.info(coursor.close())
         except Exception as ex:
             logging.critical(ex) 
+
+    
+    def avg_marks(myobj):
+        '''
+        Description:
+            Method use average function AVG() to get average marks in maths
+            group by gender.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT GENDER,AVG(MATH_MARKS) FROM STUDENT GROUP BY GENDER"
+            coursor.execute(query)
+            for row in coursor:
+                print("Gender {}  Average of maths marks {} ".format(row[0],row[1]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+
+    def sum_marks(myobj):
+        '''
+        Description:
+            Method use sum function SUM() to get sum of marks in maths
+            group by gender.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT GENDER,SUM(MATH_MARKS) FROM STUDENT GROUP BY GENDER"
+            coursor.execute(query)
+            for row in coursor:
+                print("Gender {}  Sum of Maths marks {} ".format(row[0],row[1]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+
+#------------------------------Date_Time_Function-----------------------------------#
+    def current_date(myobj):
+        '''
+        Description:
+            Method use CURRENT_DATE() function to get current date.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT CURRENT_DATE()"
+            coursor.execute(query)
+            for row in coursor:
+                print("Current Date in YYYY-MM-DD {} ".format(row[0]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+
+    def current_time(myobj):
+        '''
+        Description:
+            Method use CURRENT_TIME() function to get current time.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT CURRENT_TIME()"
+            coursor.execute(query)
+            for row in coursor:
+                print("Current Time {} ".format(row[0]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+    
+    def current_timestamp(myobj):
+        '''
+        Description:
+            Method use CURRENT_TIMESTAMP() function to get current time stamp.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT CURRENT_TIMESTAMP()"
+            coursor.execute(query)
+            for row in coursor:
+                print("Current Time Stamp {} ".format(row[0]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+    
+      
+    def date_diff(myobj):
+        '''
+        Description:
+            Method use DATEDIFF() function to get difference between two date columns.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT `name`,datediff(`DateOfTransfer`,`DateOfAddmission`) from student"
+            coursor.execute(query)
+            for row in coursor:
+                print("Student {} Stayed for {} days in School".format(row[0],row[1]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+
+#-----------------------------String_Function----------------------------------------------#
+
+    def upper_name(myobj):
+        '''
+        Description:
+            Method use UPPER() function to get Name of students in upper Case.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT upper(name) from student"
+            coursor.execute(query)
+            print("Student Name in Upper Case")
+            for row in coursor:
+                print(" {} ".format(row[0]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+
+    def reverse_name(myobj):
+        '''
+        Description:
+            Method use REVERSE() to reverse name of student.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT reverse(name),reverse(Address) from student"
+            coursor.execute(query)
+            print("Student name and address in reverse order")
+            for row in coursor:
+                print(" {}  {} ".format(row[0],row[1]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)
+
+    def length_name(myobj):
+        '''
+        Description:
+            Method use LENGTH() to get name length of student.
+        '''
+        try:
+            coursor=myobj.db.cursor()
+            query="SELECT name,address,length(name),length(address) from student"
+            coursor.execute(query)
+            print("Length of student name and Address")
+            for row in coursor:
+                print("Name of student {} length {} Address {} length {} ".format(row[0],row[2],row[1],row[3]))
+            logging.info(coursor.close())
+        except Exception as ex:
+            logging.critical(ex)   
